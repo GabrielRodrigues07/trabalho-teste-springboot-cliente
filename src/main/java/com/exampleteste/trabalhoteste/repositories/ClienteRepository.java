@@ -3,8 +3,8 @@ package com.exampleteste.trabalhoteste.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.exampleteste.trabalhoteste.entities.Produto;
+import com.exampleteste.trabalhoteste.entities.Cliente;
 
 @Repository
-public interface ProdutoRepository extends JpaRepository<Produto, Long>{
+public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 }

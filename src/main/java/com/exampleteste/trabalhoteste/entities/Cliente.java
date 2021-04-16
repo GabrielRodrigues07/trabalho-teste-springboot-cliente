@@ -8,27 +8,29 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.exampleteste.trabalhoteste.entities.dto.ProdutoDTO;
-
 @Entity
-public class Produto extends ProdutoDTO implements Serializable{
+public class Cliente implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
-	private Double valor;
-	private Instant insercao;
+	private Instant dataNascimento;
+	private String cpf;
 	
-	public Produto() {
+	private Endereco endereco;
+	
+	public Cliente() {
 	}
 
-	public Produto(Long id, String nome, Double valor, Instant insercao) {
+	public Cliente(Long id, String nome, Instant dataNascimento, String cpf, Endereco endereco) {
+		super();
 		this.id = id;
 		this.nome = nome;
-		this.valor = valor;
-		this.insercao = insercao;
+		this.dataNascimento = dataNascimento;
+		this.cpf = cpf;
+		this.endereco = endereco;
 	}
 
 	public Long getId() {
@@ -47,20 +49,28 @@ public class Produto extends ProdutoDTO implements Serializable{
 		this.nome = nome;
 	}
 
-	public Double getValor() {
-		return valor;
+	public Instant getDataNascimento() {
+		return dataNascimento;
 	}
 
-	public void setValor(Double valor) {
-		this.valor = valor;
+	public void setDataNascimento(Instant dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
-	public Instant getInsercao() {
-		return insercao;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setInsercao(Instant insercao) {
-		this.insercao = insercao;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
 
 	@Override
@@ -79,7 +89,7 @@ public class Produto extends ProdutoDTO implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Produto other = (Produto) obj;
+		Cliente other = (Cliente) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
